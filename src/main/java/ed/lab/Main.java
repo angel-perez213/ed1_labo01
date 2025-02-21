@@ -1,16 +1,19 @@
 package ed.lab;
 
+import java.util.stream.IntStream;
+
 public class Main {
-    private static final ArrayGenerator<Integer> sortedArrayGenerator = null; // Reemplácelo por una función lambda
+    private static final ArrayGenerator<Integer> sortedArrayGenerator = length ->
+            IntStream.range(0, length).boxed().toArray(Integer[]::new);
 
-    private static final ArrayGenerator<Integer> invertedArrayGenerator = null; // Reemplácelo por una función lambda
+    private static final ArrayGenerator<Integer> invertedArrayGenerator = length ->
+            IntStream.iterate(length - 1, i -> i - 1).limit(length).boxed().toArray(Integer[]::new);
 
-    private static final ArrayGenerator<Integer> randomArrayGenerator = null; // Reemplácelo por una función lambda
+    private static final ArrayGenerator<Integer> randomArrayGenerator = length ->
+            IntStream.generate(() -> (int) (Math.random() * length)).limit(length).boxed().toArray(Integer[]::new);
 
     private static final QuickSort<Integer> highPivotQuickSort = null; // Reemplácelo por una referencia a un método
-
     private static final QuickSort<Integer> lowPivotQuickSort = null; // Reemplácelo por una referencia a un método
-
     private static final QuickSort<Integer> randomPivotQuickSort = null; // Reemplácelo por una referencia a un método
 
     public static QuickSort<Integer> getHighPivotQuickSort() {
