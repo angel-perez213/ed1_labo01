@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class SortingAlgorithms {
 
-    // Método para QuickSort con el último elemento como pivote
     public static <T extends Comparable<T>> void highPivotQuickSort(T[] array) {
         System.out.println("Antes de ordenar (High Pivot):");
         printArray(array);
@@ -13,7 +12,6 @@ public class SortingAlgorithms {
         printArray(array);
     }
 
-    // Método para QuickSort con el primer elemento como pivote
     public static <T extends Comparable<T>> void lowPivotQuickSort(T[] array) {
         System.out.println("Antes de ordenar (Low Pivot):");
         printArray(array);
@@ -22,7 +20,6 @@ public class SortingAlgorithms {
         printArray(array);
     }
 
-    // Método para QuickSort con un elemento aleatorio como pivote
     public static <T extends Comparable<T>> void randomPivotQuickSort(T[] array) {
         System.out.println("Antes de ordenar (Random Pivot):");
         printArray(array);
@@ -31,7 +28,6 @@ public class SortingAlgorithms {
         printArray(array);
     }
 
-    // Método privado que implementa el algoritmo QuickSort
     private static <T extends Comparable<T>> void quickSort(T[] array, int low, int high, PivotStrategy strategy) {
         if (low < high) {
             int pivotIndex = partition(array, low, high, strategy);
@@ -40,7 +36,6 @@ public class SortingAlgorithms {
         }
     }
 
-    // Método para particionar el arreglo según la estrategia de pivote
     private static <T extends Comparable<T>> int partition(T[] array, int low, int high, PivotStrategy strategy) {
         int pivotIndex = selectPivotIndex(array, low, high, strategy);
         T pivot = array[pivotIndex];
@@ -56,7 +51,6 @@ public class SortingAlgorithms {
         return i + 1;
     }
 
-    // Método para seleccionar el índice del pivote según la estrategia
     private static <T extends Comparable<T>> int selectPivotIndex(T[] array, int low, int high, PivotStrategy strategy) {
         return switch (strategy) {
             case LOW -> low;
@@ -65,14 +59,12 @@ public class SortingAlgorithms {
         };
     }
 
-    // Método para intercambiar elementos en el arreglo
     private static <T> void swap(T[] array, int i, int j) {
         T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 
-    // Método auxiliar para imprimir el arreglo
     private static <T> void printArray(T[] array) {
         for (T element : array) {
             System.out.print(element + " ");
@@ -80,7 +72,6 @@ public class SortingAlgorithms {
         System.out.println();
     }
 
-    // Enumeración para las estrategias de selección de pivote
     private enum PivotStrategy {
         LOW,
         HIGH,
