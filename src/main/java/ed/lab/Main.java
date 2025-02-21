@@ -1,6 +1,7 @@
 package ed.lab;
-
 import java.util.stream.IntStream;
+import ed.lab.SortingAlgorithms;
+
 
 public class Main {
     private static final ArrayGenerator<Integer> sortedArrayGenerator = length ->
@@ -12,9 +13,10 @@ public class Main {
     private static final ArrayGenerator<Integer> randomArrayGenerator = length ->
             IntStream.generate(() -> (int) (Math.random() * length)).limit(length).boxed().toArray(Integer[]::new);
 
-    private static final QuickSort<Integer> highPivotQuickSort = null; // Reemplácelo por una referencia a un método
-    private static final QuickSort<Integer> lowPivotQuickSort = null; // Reemplácelo por una referencia a un método
-    private static final QuickSort<Integer> randomPivotQuickSort = null; // Reemplácelo por una referencia a un método
+
+    private static final QuickSort<Integer> highPivotQuickSort = SortingAlgorithms::<Integer>highPivotQuickSort;
+    private static final QuickSort<Integer> lowPivotQuickSort = SortingAlgorithms::<Integer>lowPivotQuickSort;
+    private static final QuickSort<Integer> randomPivotQuickSort = SortingAlgorithms::<Integer>randomPivotQuickSort;
 
     public static QuickSort<Integer> getHighPivotQuickSort() {
         return highPivotQuickSort;
